@@ -6,7 +6,7 @@ cryptography challenges.
 Here's an example of me using cryptonite to solve
 [lowe](https://ctftime.org/writeup/11328) from CSAW Quals 2018:
 
-```
+```python
 >>> from cryptonite import *
 >>> asn_decode('''MIHdMA0GCSqGSIb3DQEBAQUAA4HLADCBxwKBwQDPcH7tl5AXt/b0dv87plVZrbGC
 ... 4Hz6IzOx7AVrf3uWEkBU8fV0iwTDaU6Q8Nmf7gWEqHpwgXWA1JOTMhuyCAf/3iWk
@@ -30,3 +30,8 @@ True
 >>> xor(key, flag)
 'flag{saltstacksaltcomit5dd304276ba5745ec21fc1e6686a0b28da29e6fc}'
 ```
+
+cryptonite includes:
+ * encoding / decoding utilities like `asn_decode`, `int_to_str`, `unhex`, and `b64d`
+ * number theory functions like `mod_inv` and `iroot`
+ * byte manipulation methods like `xor` and `reverse`
