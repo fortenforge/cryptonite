@@ -21,3 +21,12 @@ def int_to_str(n):
 
 def str_to_int(s):
   return int(enhex(s), 16)
+
+def xor(c, k):
+  if len(c) < len(k):
+    return xor(k, c)
+  p = ''
+  l = len(k)
+  for i in range(len(c)):
+    p += chr(ord(c[i])^ord(k[i%l]))
+  return p
