@@ -3,7 +3,7 @@
 **cryptonite** is a lightweight python module that I built for solving CTF
 cryptography challenges.
 
-Here's an example of me using cryptonite to solve
+Here's an example that uses cryptonite to solve
 [lowe](https://ctftime.org/writeup/11328) from CSAW Quals 2018:
 
 ```python
@@ -32,6 +32,6 @@ True
 ```
 
 cryptonite includes:
- * encoding / decoding utilities like `asn_decode`, `int_to_str`, `unhex`, and `b64d`
- * number theory functions like `mod_inv` and `iroot`
- * byte manipulation methods like `xor` and `reverse`
+ * encoders / decoders like `asn_decode`, `int_to_str`, `unhex`, and `b64d`
+ * number theory functions like `modinv` and `iroot`
+ * byte manipulation utilities like `xor`
