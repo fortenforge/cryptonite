@@ -1,3 +1,5 @@
+import random
+
 def extended_gcd(aa, bb):
   lastrem, remainder = abs(aa), abs(bb)
   x, lastx, y, lasty = 0, 1, 1, 0
@@ -21,6 +23,35 @@ def iroot(k, n):
     t = (k-1) * s + n // pow(s, k-1)
     u = t // k
   return s
+
+# Miller-Rabin: return value of false means n is not prime; return value of
+# true means n is probably prime. k is the number of witness trials. Larger k
+# implies greater accuracy.
+def is_prime(n, k = 8):
+  if n == 0 or n == 1:
+    return False
+  if n == 2:
+    return True
+
+  d = n - 1
+  s = 0
+  while d % 2 == 0:
+    d = d // 2
+    s += 1
+
+  def witness(a):
+    if pow(a, d, n) == 1:
+      return False
+    for i in range(s):
+      if pow(a, 2**i * d, n) == n - 1:
+        return False
+    return True
+
+  for i in range(k):
+    a = random.randint(2, n - 1)
+    if witness(a):
+      return False
+  return True
 
 def chinese_remainder(a, n):
   s = 0
